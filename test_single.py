@@ -96,7 +96,7 @@ def main():
                 print("Resume from {} at iteration {}".format(checkpoint_path, model_iteration))
 
                 if cuda:
-                    netG = nn.parallel.DataParallel(netG, device_ids=device_ids)
+                    netG = nn.parallel.DataParallel(netG, device_ids=(0,))
                     x = x.cuda()
                     mask = mask.cuda()
 
